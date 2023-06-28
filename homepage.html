@@ -7,6 +7,7 @@
       background-color: black;
       color: white;
       font-family: 'Special Elite', cursive;
+      font-size: x-large;
       text-align: center;
     }
     
@@ -50,14 +51,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
 <body>
   <div class="container">
-    <h1 style="font-size: x-large;">Homepage</h1>
+    <h1>Homepage</h1>
     <form action="https://duckduckgo.com">
       <input type="text" class="search-input" name="q" autocomplete="off" placeholder="Search on DuckDuckGo" autofocus>
       <input type="submit" class="search-button" value="Search">
     </form>
   </div>
 
-    <p style="font-family: comic sans ms; font-size: 128;">Doge</p>
     <div style="padding-top: 100px;">
         
         <marquee>░░░░░░░░░▄░░░░░░░░░░░░░░▄░░░░<br>
@@ -90,7 +90,7 @@
         var thergb = "rgb(" + x + "," + y + "," + z + ")"; 
         console.log(thergb);
         document.body.style.color=thergb;
-        document.search-button.style.background-colorthergb;
+        document.querySelector('.search-input').style.background = thergb;
     }
     change();
 </script>
