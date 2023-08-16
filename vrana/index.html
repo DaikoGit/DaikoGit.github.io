@@ -1,0 +1,10 @@
+<button style="height:100%; width:100%;" onclick="play()"><h1>KLIKNI ZDE!</h1><img src="vrana.png" ></button>
+
+<script>
+function play(){
+    var audio = new Audio('vrana.mp3');
+    audio.loop = true;
+    audio.volume = 0.2;
+    audio.play();
+}
+</script>
