@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>𝐇𝐨𝐥𝐮𝐛</title>
-<style>
-  body {
-    background-color: black;
-    color: white;
-    font-family: 'Special Elite', cursive;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap">
-<script>
-  const startDate = new Date('2023-07-21');
-  const currentDate = new Date();
-  const timeDifference = currentDate - startDate;
-  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap">
+  <title>𝐇𝐨𝐥𝐮𝐛</title>
+  <style>
+    h1 {
+      font-family: 'Special Elite';
+    }
+    body {
+      background-color: black;
+      color: white;
+    }
+    .unsel {
+      -webkit-user-select: none; /* Chrome, Safari, Opera */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+    }
+  </style>
+  <script>
+    const startDate = new Date('2023-07-21');
+    const currentDate = new Date();
+    const timeDifference = currentDate - startDate;
+    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-  window.onload = function() {
-    const daysElement = document.getElementById('days');
-    daysElement.textContent = daysDifference + " days together <3";
-  };
-</script>
+    window.onload = function() {
+      const daysElement = document.getElementById('days');
+      daysElement.textContent = daysDifference + " days together <3";
+    };
+  </script>
 </head>
 <body>
-  <h1 id="days"></h1>
+  <h1 id="days" class="w3-display-middle w3-center w3-animate-opacity unsel"></h1>
 </body>
 </html>
