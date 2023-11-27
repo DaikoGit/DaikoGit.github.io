@@ -8,7 +8,7 @@
   <link rel="icon" href="./images/logo.png" type="image/x-icon"> 
   <title>𝐇𝐨𝐥𝐮𝐛</title>
   <style>
-    h1 {
+    h1, h4 {
       font-family: 'Special Elite';
     }
     body {
@@ -27,16 +27,22 @@
     const currentDate = new Date();
     const timeDifference = currentDate - startDate;
     const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const monthsDifference = Math.floor(daysDifference / 28); // assuming 28 days in a month
     
     // For some reason it adds another day at 2:00AM, not exactly midnight...
     
     window.onload = function() {
       const daysElement = document.getElementById('days');
+      const monthsElement = document.getElementById('months');
       daysElement.textContent = daysDifference + " days together <3";
+      monthsElement.textContent = "~ " + monthsDifference + " months";
     };
   </script>
 </head>
 <body>
-  <h1 id="days" class="w3-display-middle w3-center w3-animate-opacity unsel"></h1>
+  <div class="w3-display-middle w3-center w3-animate-opacity unsel">
+    <h1 id="days"></h1>
+    <h4 id="months" style="color: gray;"></h4>
+  </div>
 </body>
 </html>
