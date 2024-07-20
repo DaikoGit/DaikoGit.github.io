@@ -10,9 +10,16 @@
   <style>
     h1, h4 {
       font-family: 'Special Elite';
+      font-weight: bold;
+    }
+    h1 {
+        margin-bottom: -10px;
     }
     body {
-      background-color: black;
+      margin: 0;
+      padding: 0;
+      background: url('image.webp') no-repeat center center fixed;
+      background-size: cover;
       color: white;
     }
     .unsel {
@@ -21,28 +28,97 @@
       -ms-user-select: none; /* IE 10 and IE 11 */
       user-select: none; /* Standard syntax */
     }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Slight darkening */
+      backdrop-filter: blur(8px); /* Blur effect */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .vignette {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7));
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .highlight {
+      display: inline-block;
+      background: black;
+      color: gray;
+      padding: 5px 10px;
+      padding-top: 6px;
+      border-radius: 5px;
+    }
   </style>
   <script>
     const startDate = new Date('2023-07-21');
     const currentDate = new Date();
+
+    // Calculate days difference
     const timeDifference = currentDate - startDate;
     const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const monthsDifference = Math.floor(daysDifference / 28); // assuming 28 days in a month
-    
-    // For some reason it adds another day at 2:00AM, not exactly midnight...
-    
+
+    // Calculate years and months difference using year and month values
+    let totalMonthsDifference = (currentDate.getFullYear() - startDate.getFullYear()) * 12;
+    totalMonthsDifference += currentDate.getMonth() - startDate.getMonth();
+
+    // Adjust months if the current day is less than the start day
+    if (currentDate.getDate() < startDate.getDate()) {
+        totalMonthsDifference -= 1;
+    }
+
+    const yearsDifference = Math.floor(totalMonthsDifference / 12);
+    const monthsDifference = totalMonthsDifference % 12;
+
     window.onload = function() {
-      const daysElement = document.getElementById('days');
-      const monthsElement = document.getElementById('months');
-      daysElement.textContent = daysDifference + " days together <3";
-      monthsElement.textContent = "~ " + monthsDifference + " months";
+        const daysElement = document.getElementById('days');
+        const monthsElement = document.getElementById('months');
+
+        daysElement.textContent = daysDifference + " days together <3";
+
+        let displayText = "";
+        if (yearsDifference > 0) {
+            displayText += yearsDifference + " year" + (yearsDifference > 1 ? "s" : "");
+        }
+        if (monthsDifference > 0) {
+            if (displayText.length > 0) {
+                displayText += " & ";
+            }
+            displayText += monthsDifference + " month" + (monthsDifference > 1 ? "s" : "");
+        }
+
+        if (displayText.length > 0) {
+            if (monthsDifference === 0) {
+                displayText = "🎉 ~ " + displayText + " 🎉";
+            } else {
+                displayText = "~ " + displayText;
+            }
+            monthsElement.innerHTML = `<span class="highlight">${displayText}</span>`;
+        } else {
+            monthsElement.innerHTML = "";
+        }
     };
   </script>
 </head>
 <body>
-  <div class="w3-display-middle w3-center w3-animate-opacity unsel">
-    <h1 id="days"></h1>
-    <h4 id="months" style="color: gray;"></h4>
+  <div class="overlay">
+    <div class="vignette"></div>
+    <div class="content">
+      <h1 id="days"></h1>
+      <h4 id="months"></h4>
+    </div>
   </div>
 </body>
 </html>
