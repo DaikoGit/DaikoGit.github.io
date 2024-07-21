@@ -12,9 +12,6 @@
       font-family: 'Special Elite';
       font-weight: bold;
     }
-    h1 {
-        margin-bottom: -10px;
-    }
     body {
       margin: 0;
       padding: 0;
@@ -58,33 +55,40 @@
       background: black;
       color: gray;
       padding: 5px 10px;
-      padding-top: 6px;
       border-radius: 5px;
     }
   </style>
   <script>
-    const startDate = new Date('2023-07-21');
-    const currentDate = new Date();
+    const startDate = new Date('2023-07-21T00:00:00Z'); // Start date in UTC
+    const timeOffsetHours = -2; // Subtract 2 hours
 
-    // Calculate days difference
-    const timeDifference = currentDate - startDate;
-    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-    // Calculate years and months difference using year and month values
-    let totalMonthsDifference = (currentDate.getFullYear() - startDate.getFullYear()) * 12;
-    totalMonthsDifference += currentDate.getMonth() - startDate.getMonth();
-
-    // Adjust months if the current day is less than the start day
-    if (currentDate.getDate() < startDate.getDate()) {
-        totalMonthsDifference -= 1;
+    function adjustCurrentDateForOffset(offsetHours) {
+      const currentDate = new Date();
+      currentDate.setHours(currentDate.getHours() + offsetHours);
+      return currentDate;
     }
-
-    const yearsDifference = Math.floor(totalMonthsDifference / 12);
-    const monthsDifference = totalMonthsDifference % 12;
 
     window.onload = function() {
         const daysElement = document.getElementById('days');
         const monthsElement = document.getElementById('months');
+
+        const adjustedCurrentDate = adjustCurrentDateForOffset(timeOffsetHours);
+
+        // Calculate days difference
+        const timeDifference = adjustedCurrentDate - startDate;
+        const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+        // Calculate years and months difference
+        let totalMonthsDifference = (adjustedCurrentDate.getFullYear() - startDate.getFullYear()) * 12;
+        totalMonthsDifference += adjustedCurrentDate.getMonth() - startDate.getMonth();
+
+        // Adjust months if the current day is less than the start day
+        if (adjustedCurrentDate.getDate() < startDate.getDate()) {
+            totalMonthsDifference -= 1;
+        }
+
+        const yearsDifference = Math.floor(totalMonthsDifference / 12);
+        const monthsDifference = totalMonthsDifference % 12;
 
         daysElement.textContent = daysDifference + " days together <3";
 
