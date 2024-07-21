@@ -10,7 +10,6 @@
   <style>
     h1, h4 {
       font-family: 'Special Elite';
-      font-weight: bold;
     }
     body {
       margin: 0;
@@ -31,7 +30,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Slight darkening */
       backdrop-filter: blur(8px); /* Blur effect */
       display: flex;
       justify-content: center;
@@ -90,7 +88,7 @@
         const yearsDifference = Math.floor(totalMonthsDifference / 12);
         const monthsDifference = totalMonthsDifference % 12;
 
-        daysElement.textContent = daysDifference + " days together <3";
+        daysElement.textContent = daysDifference - 1 + " days together <3";
 
         let displayText = "";
         if (yearsDifference > 0) {
@@ -104,8 +102,10 @@
         }
 
         if (displayText.length > 0) {
-            if (monthsDifference === 0) {
-                displayText = "🎉 ~ " + displayText + " 🎉";
+            // Check if the difference is exactly one year, one month, or any exact combination
+            if ((yearsDifference >= 0 && monthsDifference === 0) ||
+                (yearsDifference === 0 && monthsDifference > 0)) {
+                displayText = "🎉 " + displayText + " 🎉";
             } else {
                 displayText = "~ " + displayText;
             }
