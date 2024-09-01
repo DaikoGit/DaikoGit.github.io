@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holub</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000000; /* Černé pozadí */
+      color: #ffffff; /* Bílý text */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Výška viewportu */
+    }
+    .content {
+      text-align: center;
+    }
+    .highlight {
+      display: inline-block;
+      background: black;
+      color: gray;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    const startDate = new Date('2023-07-21T00:00:00Z'); // Start date in UTC
+
+    window.onload = function() {
+        const daysElement = document.getElementById('days');
+        const monthsElement = document.getElementById('months');
+
+        const currentDate = new Date();
+
+        // Calculate days difference
+        const timeDifference = currentDate - startDate;
+        const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+        // Calculate years and months difference
+        let totalMonthsDifference = (currentDate.getFullYear() - startDate.getFullYear()) * 12;
+        totalMonthsDifference += currentDate.getMonth() - startDate.getMonth();
+
+        // Adjust months if the current day is less than the start day
+        if (currentDate.getDate() < startDate.getDate()) {
+            totalMonthsDifference -= 1;
+        }
+
+        const yearsDifference = Math.floor(totalMonthsDifference / 12);
+        const monthsDifference = totalMonthsDifference % 12;
+
+        daysElement.textContent = (daysDifference - 1) + " days together <3";
+
+        let displayText = "";
+        if (yearsDifference > 0) {
+            displayText += yearsDifference + " year" + (yearsDifference > 1 ? "s" : "");
+        }
+        if (monthsDifference > 0) {
+            if (displayText.length > 0) {
+                displayText += " & ";
+            }
+            displayText += monthsDifference + " month" + (monthsDifference > 1 ? "s" : "");
+        }
+
+        if (displayText.length > 0) {
+            displayText = "~ " + displayText;
+            monthsElement.innerHTML = `<span class="highlight">${displayText}</span>`;
+        } else {
+            monthsElement.innerHTML = "";
+        }
+    };
+  </script>
+</head>
+<body>
+  <div class="content">
+    <h1 id="days"></h1>
+    <h4 id="months"></h4>
+  </div>
+</body>
+</html>
