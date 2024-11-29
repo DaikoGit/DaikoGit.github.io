@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
-    <meta http-equiv="refresh" content="0;url=/dogcat/index.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legrační pes a vtip</title>
     <style>
         body {
-            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .joke {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #555;
         }
     </style>
+    <script>
+        function getRandomJoke() {
+            const jokes = [
+                "Proč blondýnka otevírá jogurt už v obchodě? Protože na víčku je napsáno: Zde otevřít.",
+                "Jaký je rozdíl mezi manželem a komárem? Komár píchá jen v létě.",
+                "Proč si policajt bere do lesa žebřík? Protože je les vysoký.",
+                "Víte, proč si důchodci dávají do oken záclony? Aby mohli důchodit.",
+                "Víte, jaký je rozdíl mezi optimistou a pesimistou? Pesimista říká: Horší už to být nemůže! A optimista říká: Ale ano, může!",
+                "Přijde chlap do hospody a říká: ‚Deset piv!‘ Výčepní: ‚To je na rozjezd?‘ Chlap: ‚Ne, na dojezd!‘",
+                "Blondýnka volá do divadla: ‚Kdy začíná večerní představení?‘ Odpověď: ‚V sedm hodin.‘ Blondýnka: ‚A jak dlouho trvá?‘ Odpověď: ‚Přibližně dvě hodiny.‘ Blondýnka: ‚Skvělé, tak v devět jsem tam!‘",
+                "Víte, proč mají blondýnky na stropě červený flek? Protože když drhnou podlahu, teče jim krev z nosu.",
+                "Proč nemůže být ptakopysk zlodějem? Protože by za sebou zanechával stopy.",
+                "Jak se říká línému psovi? Ořech – pořád leží pod stromem.",
+                "Přijde Pepíček domů a říká: ‚Mami, jsem génius, dnes jsem byl ve škole první!‘ Maminka: ‚Opravdu? A co jste dělali?‘ Pepíček: ‚Hledali jsme školu.‘",
+                "Co dělá blondýnka, když si kupuje nové auto? Kupuje dvě. Jedno, aby jezdila, a druhé, aby měla náhradní díly.",
+                "Proč programátor nemůže přejít silnici? Protože uvidí zebru a zacyklí se.",
+                "Může slepec darovat krev? Samozřejmě, ale ne tu svou.",
+                "Jaké je nejoblíbenější jídlo duchů? Strašidelné špagety!"
+            ];
+            return jokes[Math.floor(Math.random() * jokes.length)];
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".joke").textContent = getRandomJoke();
+        });
+    </script>
 </head>
 <body>
+    <img src="dog-worried.gif" alt="Worried Dog">
+    <div class="joke">Načítám vtip...</div>
 </body>
 </html>
