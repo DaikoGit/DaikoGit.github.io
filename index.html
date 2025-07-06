@@ -1,61 +1,451 @@
 <!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legrační pes a vtip</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000; /* Černé pozadí */
-            text-align: center;
-            color: #fff; /* Bílý text */
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        .joke {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: bold; /* Tučný text */
-        }
-    </style>
-    <script>
-        function getRandomJoke() {
-            const jokes = [
-                "Proč blondýnka otevírá jogurt už v obchodě? Protože na víčku je napsáno: Zde otevřít.",
-                "Jaký je rozdíl mezi manželem a komárem? Komár píchá jen v létě.",
-                "Proč si policajt bere do lesa žebřík? Protože je les vysoký.",
-                "Víte, proč si důchodci dávají do oken záclony? Aby mohli důchodit.",
-                "Víte, jaký je rozdíl mezi optimistou a pesimistou? Pesimista říká: Horší už to být nemůže! A optimista říká: Ale ano, může!",
-                "Přijde chlap do hospody a říká: ‚Deset piv!‘ Výčepní: ‚To je na rozjezd?‘ Chlap: ‚Ne, na dojezd!‘",
-                "Blondýnka volá do divadla: ‚Kdy začíná večerní představení?‘ Odpověď: ‚V sedm hodin.‘ Blondýnka: ‚A jak dlouho trvá?‘ Odpověď: ‚Přibližně dvě hodiny.‘ Blondýnka: ‚Skvělé, tak v devět jsem tam!‘",
-                "Víte, proč mají blondýnky na stropě červený flek? Protože když drhnou podlahu, teče jim krev z nosu.",
-                "Proč nemůže být ptakopysk zlodějem? Protože by za sebou zanechával stopy.",
-                "Jak se říká línému psovi? Ořech – pořád leží pod stromem.",
-                "Přijde Pepíček domů a říká: ‚Mami, jsem génius, dnes jsem byl ve škole první!‘ Maminka: ‚Opravdu? A co jste dělali?‘ Pepíček: ‚Hledali jsme školu.‘",
-                "Co dělá blondýnka, když si kupuje nové auto? Kupuje dvě. Jedno, aby jezdila, a druhé, aby měla náhradní díly.",
-                "Proč programátor nemůže přejít silnici? Protože uvidí zebru a zacyklí se.",
-                "Může slepec darovat krev? Samozřejmě, ale ne tu svou.",
-                "Jaké je nejoblíbenější jídlo duchů? Strašidelné špagety!"
-            ];
-            return jokes[Math.floor(Math.random() * jokes.length)];
-        }
+<html lang="en" class="dark">
 
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelector(".joke").textContent = getRandomJoke();
-        });
-    </script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐃𝐚𝐢𝐤𝐨'𝐬 𝐰𝐞𝐛𝐬𝐢𝐭𝐞</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/IanLunn/jQuery-Parallax/scripts/jquery.parallax-1.1.3.js"></script>
 </head>
-<body>
-    <img src="dog-worried.gif" alt="Worried Dog">
-    <div class="joke">Načítám vtip...</div>
+
+<style>
+
+  body {
+  font-family: 'Special Elite', cursive;
+}
+
+.inner {
+  transform: translateZ(20px)
+}
+</style>
+<script>
+  new WOW().init();
+</script>
+
+<style>
+
+html {
+  scroll-behavior: smooth;
+}
+	.box {
+    font-size: 14px;
+    line-height: 1.42857143;
+    font-family: 'Special Elite', sans-serif;
+    visibility: visible;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: transparent;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);}
+
+	.inner {
+    font-size: 14px;
+    line-height: 1.42857143;
+    font-family: 'Special Elite', sans-serif;
+    visibility: visible;
+    box-sizing: border-box;
+    color: #fff;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateZ(30px) translateX(-50%) translateY(-50%);
+	}
+	h3 {
+    	font-size: x-large;
+	}
+
+	.btn{
+    font-family: 'Special Elite', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1.3333333;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 0px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding: 14px 42px;
+    /*margin-bottom: -400px;*/
+    margin-right: 12px;
+    transition: all 0.4s ease-in-out;
+    visibility: visible;
+    animation-delay: 2s;
+    animation-name: fadeInUp;
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+	}
+
+  .btn2 {
+    font-family: 'Special Elite', sans-serif;
+    visibility: visible;
+    box-sizing: border-box;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    margin-left: -58px;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 0px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 12px;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .titel {
+    visibility: visible;
+    font-family: inherit;
+    line-height: 1.1;
+    font-size: 36px;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .projcode {
+    visibility: visible;
+    line-height: 1.1;
+    font-weight: 700;
+    box-sizing: border-box;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    padding: 2px 4px;
+    font-size: 90%;
+    border-radius: 4px;
+    background-color: rgb(19, 19, 19);
+    color: #0f4b99;
+    }
+    .plswurk {
+    font-size: 14px;
+    line-height: 1.42857143;
+    font-family: 'Special Elite', sans-serif;
+    visibility: visible;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 0 0 10px;
+    background-color: rgba(0, 0, 0, 0.600);
+    margin-right: 35px;
+    padding: 3px;
+    margin-left: -58px;
+    }
+
+    .projtitel {
+    visibility: visible;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-left: -60px;
+    margin-top: -30px;
+    color: #ffffff;
+    }
+
+    .h55 {
+    visibility: visible;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin-left: -58px;
+    }
+
+    .abouttext{
+    font-size: 14px;
+    line-height: 1.42857143;
+    font-family: 'Special Elite', sans-serif;
+    visibility: visible;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 0 0 10px;
+    }
+
+    .smolabout{
+    visibility: visible;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: rgb(41, 41, 41);
+    }
+.btn:hover {
+  background: #ffffff;
+  color: #333333;
+  border-color: transparent;
+}
+
+.btn2:hover {
+  background: #ffffff;
+  color: #333333;
+  border-color: transparent;
+}
+</style>
+
+<body class="text-white"  style="background-color: black;">
+<!-- Navigation Panel -->
+<div class="fixed top-0 left-0 right-0 bg-black p-3 z-50 px-6 md:px-12 lg:px-48 flex items-center justify-between">
+  <!-- Logo -->
+  <img src="./images/Logo.png" class="h-[45px] w-auto">
+
+  <!-- Hamburger Menu (Mobile) -->
+  <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
+    ☰
+  </button>
+
+  <!-- Links -->
+  <div id="menu" class="hidden md:flex space-x-6 text-white text-sm">
+    <a href="#intro" class="hover:text-gray-400">.intro( )</a>
+    <a href="#about" class="hover:text-gray-400">.about( )</a>
+    <a href="#projects" class="hover:text-gray-400">.projects( )</a>
+    <a href="#stuff" class="hover:text-gray-400">.blog( )</a>
+    <a href="https://github.com/DaikoGit" class="hover:text-gray-400">.github( )</a>
+  </div>
+</div>
+
+<!-- Mobile Menu Dropdown -->
+<div id="mobile-menu" class="md:hidden fixed top-[60px] left-0 right-0 bg-black px-6 py-3 text-white text-sm hidden z-40">
+  <a href="#intro" class="block py-2 hover:text-gray-400">.intro( )</a>
+  <a href="#about" class="block py-2 hover:text-gray-400">.about( )</a>
+  <a href="#projects" class="block py-2 hover:text-gray-400">.projects( )</a>
+  <a href="#stuff" class="block py-2 hover:text-gray-400">.blog( )</a>
+  <a href="https://github.com/DaikoGit" class="block py-2 hover:text-gray-400">.github( )</a>
+</div>
+
+<!-- Simple JS for toggling mobile menu -->
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+<!-- Include particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<!-- Section with particles background -->
+<section id="intro" class="parallax-section relative h-screen bg-cover bg-center font-special" style="background: url('http://daikoje.borec.cz/images/C.png');">
+    <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black opacity-60 z-0"></div>
+
+  <!-- Particles background -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+  
+  <!-- Content wrapper -->
+  <div class="relative z-10 flex flex-col h-full">
+    
+    <!-- Centered text -->
+    <div class="flex-grow flex flex-col items-center justify-center text-center px-4">
+<h2 class="text-4xl font-bold mb-2 text-white wow animate__animated animate__bounceIn" data-wow-delay="0.4s">
+  Just<span style="color: #0F4BD991;">Daikø ⬘</span>
+</h2>
+
+      						<h5 class="wow animate__animated animate__bounceIn" data-wow-delay="1s"><b>.is( "<span
+							class="txt-rotate"
+							data-period="2000"
+							data-rotate='[ "Programmer", "Guitarist", "Singer", "Car guy"]'>
+							</span>" )</b></h5>
+		
+    </div>
+    
+    <!-- Button pinned to bottom -->
+  <div class="pb-10 flex justify-center">
+    <a href="#about" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs animated text-sm" 
+       data-wow-delay="1.6s" 
+       style="visibility: visible; animation-delay: 2s; animation-name: fadeInUp;">
+      Discover
+    </a>
+  </div>
+
+  </div>
+</section>
+
+<!-- Particles config -->
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 120, density: { enable: true, value_area: 800 } },
+      color: { value: "#ffffff" },
+      opacity: { value: 0.5, random: true },
+      size: { value: 3, random: true },
+      line_linked: {
+        enable: false,
+      },
+      move: { enable: true, speed: 1 }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: { onhover: { enable: true, mode: "repulse" } }
+    },
+    retina_detect: true
+  });
+</script>
+
+
+
+<section id="about" class="bg-black px-6 py-12 md:px-10 md:py-20 text-sm">
+  <div class="max-w-screen-lg mx-auto flex flex-col md:flex-row items-center justify-between">
+    
+    <div class="md:w-2/3 lg:w-1/2">
+      <h3 class="text-3xl font-semibold mb-4 text-white wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s">.about( )</h3>
+<h5 class="smolabout wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s"><code class="projcode"  style="color: white !important;" ><b>// Something about me</b></code></h5>
+<p class="abouttext wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s">
+  <b>I'm a 19-year-old guy from Czechia</b> 🇨🇿<br>
+  I graduated as a car mechanic from <b>Polytechnic High School</b>.<br>
+  These days, I work as a service technician for Minolta printers.<br>
+  Even though I don’t work as a mechanic professionally, I still repair both of my cars on my own—and I love it just as much as ever. I’ve got big plans for the future in that area.<br>
+  My hobbies include <b>programming, music, drawing, traveling</b>, and more.<br>
+  I create digital art in my free time using my wacom tablet.<br> I mostly draw stickers for <b>Campfire</b><br>
+  I also code various kinds of projects using <b>multiple programming languages</b>, mainly Python, JavaScript, C#, and Java.<br>
+  Scroll down a bit and you’ll find <b>some of my coding work</b> on display.<br>
+  When I have the time, I also enjoy <b>video editing, photography, and recording music</b>.<br>
+    </div>
+      <img class="md:w-1/3 rounded-xl wow animate__animated animate__fadeInRight" data-wow-delay="0.6s" src="./images/About.png" alt="About me image" class="shadow-lg max-w-full">
+    
+  </div>
+</section>
+
+<section id="projects" class="bg-fixed overflow-x-hidden min-h-screen bg-cover bg-center px-6 py-10" style="background-image: url('./images/ProjectsBG.png');">
+  <div class="max-w-screen-xl mx-auto w-full py-24">
+    
+<div class="mb-10 px-6 sm:px-12 md:px-20 lg:px-36 xl:px-56 text-center md:text-left">
+  <h3 class="text-3xl font-bold text-white mb-2 wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s">.projects( )</h3>
+  <code class="bg-[#131313] text-[#0f4b99] px-2 py-1 rounded text-xs wow animate__animated animate__fadeInLeft" data-wow-delay="1.2s"><b>// Some of my programming projects!</b></code>
+</div>
+
+
+    <!-- Grid stays centered -->
+    <div class="flex justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Panel A -->
+        <div class="box h-80 w-96 wow animate__animated animate__bounceIn" data-wow-delay="1.8s" data-tilt data-tilt-reverse="true">
+          <img src="./images/PanelA.png" alt="Campfire Preview">
+          <div class="inner">
+            <h3 class="projtitel"><strong>Campfire</strong></h3>
+            <h5 class="h55"><strong>Chatting application</strong></h5>
+            <p class="plswurk">
+              Special chatting app<br>
+              made just for me and my girlfriend.
+              Has a lot of <b>special</b> features!
+            </p>
+            <a href="http://daikoje.borec.cz/Campfire" class="btn2">Envy button</a>
+          </div>
+        </div>
+
+                <!-- Panel A -->
+        <div class="box h-80 w-96 wow animate__animated animate__bounceIn" data-wow-delay="2.4s" data-tilt data-tilt-reverse="true">
+          <img src="./images/PanelB.png" alt="Campfire Preview">
+          <div class="inner">
+            <h3 class="projtitel"><strong>The Cup of Tea</strong></h3>
+            <h5 class="h55"><strong>Video game</strong></h5>
+            <p class="plswurk">
+              Game that cannot be described.
+              You just have to experience it.
+              You play as a goose. Dope.<br>
+            </p>
+            <a href="http://daikoje.borec.cz/Campfire" class="btn2">Download ⬇</a>
+          </div>
+        </div>
+                <!-- Panel A -->
+        <div class="box h-80 w-96 wow animate__animated animate__bounceIn" data-wow-delay="3.0s" data-tilt data-tilt-reverse="true">
+          <img src="./images/PanelC.png" alt="Campfire Preview">
+          <div class="inner">
+            <h3 class="projtitel"><strong>Midnight Apex</strong></h3>
+            <h5 class="h55"><strong>Video game</strong></h5>
+            <p class="plswurk">
+              Little racing game with my in real life cars:<br>
+              Corolla E11 and Pregio 2005. Pretty cool, huh?<br>
+            </p>
+            <a href="http://daikoje.borec.cz/Campfire" class="btn2">Download ⬇</a>
+          </div>
+        </div>
+                <!-- Panel A -->
+        <div class="box h-80 w-96 wow animate__animated animate__bounceIn" data-wow-delay="3.6s" data-tilt data-tilt-reverse="true">
+          <img src="./images/PanelD.png" alt="Campfire Preview">
+          <div class="inner">
+            <h3 class="projtitel"><strong>Flute</strong></h3>
+            <h5 class="h55"><strong>Music downloader</strong></h5>
+            <p class="plswurk">
+              My small music downloader.<br>
+              You just type the names of the songs in a text file and it takes care of the rest.<br>
+            </p>
+            <a href="http://daikoje.borec.cz/Campfire" class="btn2">Closed source?</a>
+          </div>
+        </div>
+        <!-- Repeat panels B, C, D -->
+        
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Footer (was blue, now black) -->
+  <footer class="bg-black text-center py-32 pb-36 text-white text-base">
+     <!-- Icons container -->
+<div class="flex justify-center space-x-4 mb-6">
+  <a href="https://ardour.org/" target="_blank"><img src="./ikonky/ardour.webp" alt="Ardour" class="w-6 h-6 wow animate__animated animate__bounceIn" data-wow-delay="0.4s"></a>
+  <a href="https://www.gimp.org/" target="_blank"><img src="./ikonky/gimp.webp" alt="GIMP" class="w-6 h-6 wow animate__animated animate__bounceIn" data-wow-delay="0.8s"></a>
+  <a href="https://kdenlive.org/" target="_blank"><img src="./ikonky/kdenlive.webp" alt="Kdenlive" class="w-6 h-6 wow animate__animated animate__bounceIn" data-wow-delay="1.2s"></a>
+  <a href="https://krita.org/" target="_blank"><img src="./ikonky/krita.webp" alt="Krita" class="w-6 h-6 wow animate__animated animate__bounceIn" data-wow-delay="1.6s"></a>
+  <a href="https://ubuntu.com/" target="_blank"><img src="./ikonky/ubuntu.webp" alt="Ubuntu" class="w-6 h-6 wow animate__animated animate__bounceIn" data-wow-delay="2.0s"></a>
+  <a href="https://unity.com/" target="_blank"><img src="./ikonky/unity6.webp" alt="Unity" class="w-6 h-6 wow animate__animated animate__bounceIn" data-wow-delay="2.4s"></a>
+  <a href="https://vscodium.com/" target="_blank"><img src="./ikonky/vscodium.webp" alt="VSCodium" class="w-6 h-6 wow animate__animated animate__bounceIn" data-wow-delay="2.8s"></a>
+</div>
+
+    <p class="wow animate__animated animate__bounceIn" data-wow-delay="3.2s">Made with ❤ by Daiko ⬘</p>
+    <p class="wow animate__animated animate__bounceIn" data-wow-delay="3.6s">daiko@null.net</p>
+  </footer>
+<script src="vanilla-tilt.js"></script>
+<script src="writeFx.js"></script>
+<script>
+  function initParallax() {
+    $('#intro').parallax("100%", -0.4);
+  }
+  $(document).ready(initParallax);
+</script>
+<script>
+  window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+  });
+</script>
 </body>
 </html>
+
