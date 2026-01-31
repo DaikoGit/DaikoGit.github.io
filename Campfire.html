@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <!-- Link to manifest -->
-<link rel="manifest" href="android/manifest.json">
-<meta name="theme-color" content="#000000">
+  <meta charset="UTF-8">
+  <title>Campfire WebView</title>
 
-   <meta http-equiv="refresh" content="0;url=https://100.93.207.59:8000/">
-    <style>
-        body {
-background-colour: black;
-        }
-    </style>
+  <!-- Link to manifest (optional for PWA) -->
+  <link rel="manifest" href="android/manifest.json">
+  <meta name="theme-color" content="#000000">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-    <h1 style="color: white">hello world</h1>
+
+  <!-- WebView-like container -->
+  <iframe src="https://100.93.207.59:8000/" title="Campfire"></iframe>
+
+  <script>
+    // Optional: Service worker registration if you want PWA caching
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js', { scope: './' })
+        .then(reg => console.log('Service worker registered!', reg))
+        .catch(err => console.error('Service worker registration failed:', err));
+    }
+  </script>
+
 </body>
-
-   <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.js', { scope: './' })
-    .then(reg => console.log('Service worker registered!', reg))
-    .catch(err => console.error('Service worker registration failed:', err));
-}
-</script>
-
-   
 </html>
