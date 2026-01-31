@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Campfire WebView</title>
-
-  <!-- Link to manifest (optional for PWA) -->
-  <link rel="manifest" href="android/manifest.json">
   <meta name="theme-color" content="#000000">
 
   <style>
@@ -14,28 +11,67 @@
       padding: 0;
       height: 100%;
       background-color: black;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: sans-serif;
     }
+
+    #iframe-container {
+      width: 100%;
+      height: 100%;
+      display: none; /* hidden until button clicked */
+    }
+
     iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
+
+    button {
+      padding: 1em 2em;
+      font-size: 1.2em;
+      cursor: pointer;
+      background-color: #222;
+      color: white;
+      border: 2px solid #555;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
   </style>
 </head>
 <body>
 
-  <!-- WebView-like container -->
-  <iframe src="https://100.93.207.59:8000/" title="Campfire"></iframe>
+  <h1>Welcome to Campfire</h1>
+  <button id="load-btn">Open App</button>
+
+  <!-- iframe container -->
+  <div id="iframe-container"></div>
 
   <script>
-    // Optional: Service worker registration if you want PWA caching
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js', { scope: './' })
-        .then(reg => console.log('Service worker registered!', reg))
-        .catch(err => console.error('Service worker registration failed:', err));
-    }
-  </script>
+    const button = document.getElementById('load-btn');
+    const container = document.getElementById('iframe-container');
 
+    button.addEventListener('click', () => {
+      // Create iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = "https://100.93.207.59:8000/"; // replace with your Flask HTTPS URL
+      iframe.title = "Campfire";
+
+      // Clear container & add iframe
+      container.innerHTML = "";
+      container.appendChild(iframe);
+
+      // Show iframe container & hide button
+      container.style.display = "block";
+      button.style.display = "none";
+    });
+  </script>
 </body>
 </html>
