@@ -1,7 +1,7 @@
 {
   "name": "Campfire",
   "short_name": "Campfire",
-  "start_url": "/",
+  "start_url": "/Campfire.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
