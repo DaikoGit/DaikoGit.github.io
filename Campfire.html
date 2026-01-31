@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Campfire WebView</title>
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="android/manifest.json">
   <meta name="theme-color" content="#000000">
 
   <style>
@@ -55,20 +58,25 @@
   <div id="iframe-container"></div>
 
   <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js', { scope: './' })
+        .then(reg => console.log('Service worker registered!', reg))
+        .catch(err => console.error('Service worker registration failed:', err));
+    }
+
+    // Dynamic iframe load
     const button = document.getElementById('load-btn');
     const container = document.getElementById('iframe-container');
 
     button.addEventListener('click', () => {
-      // Create iframe
       const iframe = document.createElement('iframe');
-      iframe.src = "https://100.93.207.59:8000/"; // replace with your Flask HTTPS URL
+      iframe.src = "https://100.93.207.59:8000/"; // replace with your HTTPS Flask URL
       iframe.title = "Campfire";
 
-      // Clear container & add iframe
       container.innerHTML = "";
       container.appendChild(iframe);
 
-      // Show iframe container & hide button
       container.style.display = "block";
       button.style.display = "none";
     });
