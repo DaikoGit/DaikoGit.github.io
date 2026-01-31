@@ -1,4 +1,4 @@
-// android/service-worker.js
+// android/service-worker.js huh?
 self.addEventListener('install', event => {
   console.log('Service Worker installing...');
   self.skipWaiting(); // Activate immediately
