@@ -54,21 +54,30 @@
       z-index: 1;
       text-align: center;
     }
-
 .highlight {
   display: inline-block;
   background: black;
-  color: white;
+  color: gray;
   padding: 3px 10px;
   border-radius: 0;
+  max-width: calc(100vw - 30px);
+  box-sizing: border-box;
 }
 
 .date {
   margin-top: 18px;
   font-family: 'Special Elite';
   font-size: 18px;
-  font-weight: 700;
   color: white;
+  text-shadow: 0 0 1px white;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .date {
+    font-size: 13px;
+    margin-top: 12px;
+  }
 }
   </style>
 
