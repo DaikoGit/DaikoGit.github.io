@@ -59,8 +59,8 @@
   display: inline-block;
   background: black;
   color: gray;
-  padding: 3px;
-  border-radius: 5px;
+  padding: 3px 10px;
+  border-radius: 0;
 }
 
 .date {
@@ -75,10 +75,10 @@
   <script>
     window.onload = function() {
       document.getElementById('days').textContent =
-        "We shared 1,146 beautiful days.";
+        "We shared 1146 beautiful days.";
 
-      document.getElementById('months').innerHTML =
-  "Thank you for every one of them. ~ I wouldn't erase a single one.";
+document.getElementById('months').innerHTML =
+  '<span class="highlight">Thank you for every one of them ~ I wouldn\'t erase a single one.</span>';
 
       document.getElementById('date').textContent =
         "21. července 2023 - 10. září 2026";
